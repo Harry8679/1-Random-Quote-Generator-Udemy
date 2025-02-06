@@ -8,7 +8,7 @@ const quotes = [
   "N'attends pas l'occasion, crée-la."
 ];
 
-export default function QuoteGenerator() {
+export default function Quotable() {
   const [quote, setQuote] = useState(quotes[0]);
 
   const generateQuote = () => {

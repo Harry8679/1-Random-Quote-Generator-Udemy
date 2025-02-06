@@ -1,10 +1,13 @@
 import './App.css';
+import Quotable from './QuoteGeneral';
 import QuoteGenerator from './QuoteGeneral';
 
 function App() {
   return (
     <div className="App">
-      <QuoteGenerator />
+      {/* <QuoteGenerator /> */}
+      <hr />
+      <Quotable />
     </div>
   );
 }
