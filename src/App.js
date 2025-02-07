@@ -5,7 +5,7 @@ import QuoteGenerator from './QuoteGeneral';
 function App() {
   return (
     <div className="App">
-      <QuoteGenerator />
+      {/* <QuoteGenerator /> */}
       <hr />
       <Quotable />
     </div>

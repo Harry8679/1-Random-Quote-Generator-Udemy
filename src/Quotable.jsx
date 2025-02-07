@@ -7,21 +7,23 @@ export default function Quotable() {
 
   const fetchQuote = async () => {
     try {
-      const response = await fetch("https://api.quotable.io/random");
-
+      const response = await fetch("https://api.allorigins.win/get?url=https://zenquotes.io/api/random");
+  
       if (!response.ok) {
-        throw new Error("Erreur lors de la récupération des données");
+        throw new Error("Erreur lors de la récupération des citations");
       }
-
+  
       const data = await response.json();
-      setQuote(data.content);
-      setAuthor(data.author);
-      setError(false); // Réinitialiser l'erreur en cas de succès
+      const parsedData = JSON.parse(data.contents); // Décoder la réponse
+      setQuote(parsedData[0].q);
+      setAuthor(parsedData[0].a);
+      setError(false);
     } catch (err) {
       setError(true);
       console.error("Erreur :", err);
     }
   };
+  
 
   useEffect(() => {
     fetchQuote();
@@ -35,7 +37,7 @@ export default function Quotable() {
         ) : (
           <>
             <p className="text-xl font-semibold text-gray-800">"{quote}"</p>
-            {author && <p className="mt-2 text-gray-600">- {author}</p>}
+            <p className="mt-2 text-gray-600">- {author}</p>
           </>
         )}
         <button
